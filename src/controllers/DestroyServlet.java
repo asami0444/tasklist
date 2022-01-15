@@ -35,8 +35,8 @@ public class DestroyServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            //セッションスコープからメッセージのIDを取得して
-            //該当のIDメッセージ1件のみをデータベースから取得
+            //セッションスコープからIDを取得して
+            //該当のID1件のみをデータベースから取得
             TaskList m = em.find(TaskList.class, (Integer)(request.getSession().getAttribute("task_id")));
 
             //データベースを更新
